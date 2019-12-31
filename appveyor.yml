@@ -18,16 +18,20 @@ environment:
     R_REMOTES_STANDALONE: yes
     USE_RTOOLS: yes
     R_CHECK_INSTALL_ARGS: --install-args=--build
-    R_CHECK_ARGS: --as-cran
+    R_CHECK_ARGS: "--as-cran --no-multiarch --no-manual "    
     APPVEYOR_SAVE_CACHE_ON_ERROR: false
+    R_REMOTES_NO_ERRORS_FROM_WARNINGS: true        
 
   matrix:
+
   - R_VERSION: stable
+    platform: x64
     RTOOLS_VERSION: 35
     R_ARCH: x64
     CRAN: http://cran.rstudio.com
 
   - R_VERSION: stable
+    platform: x86
     RTOOLS_VERSION: 35
     R_ARCH: i386
     CRAN: http://cran.rstudio.com
