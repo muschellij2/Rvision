@@ -49,6 +49,9 @@ on_failure:
   # - depends.exe /f:1 /c /oc:C:/projects/rvision/Rvision.Rcheck/depends.txt C:/projects/rvision/Rvision.Rcheck/00_pkg_src/Rvision/src/Rvision.dll
   - 7z a failure.zip *.Rcheck\*
   - appveyor PushArtifact failure.zip
+  - cat *.Rcheck\**\*.out & exit 0
+  - cat *.Rcheck\**\*.log & exit 0
+
 
 artifacts:
   - path: '*.Rcheck\**\*.log'
